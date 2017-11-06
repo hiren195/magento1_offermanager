@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Tm Offermanager
+ *
+ * @category  Tm
+ * @package   Offermanager
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<layout version="0.1.0">
+
+    <default>
+		<reference name="head">
+            <action method="addCss"><stylesheet>css/tm/offermanager.css</stylesheet></action>
+        </reference>
+		<reference name="left">
+			<block type="offermanager/offermanager" name="left.offer" before="-">
+				<action method="setTemplate" ifconfig="offermanager/managesidebar/offer_leftposition">
+					<template>offermanager/offerbar.phtml</template> 
+				</action>
+			</block>
+		</reference>
+		<reference name="right">
+			<block type="offermanager/offermanager" name="right.offer" before="-">
+				<action method="setTemplate" ifconfig="offermanager/managesidebar/offer_rightposition">
+					<template>offermanager/offerbar.phtml</template> 
+				</action>
+			</block>
+		</reference>
+    </default>
+
+	<offermanager_offer_products>
+        <reference name="content">
+            <block type="offermanager/product_list" name="productpage" template="offermanager/productlist.phtml" >
+				<block type="catalog/product_list_toolbar" name="product_list_toolbar" template="catalog/product/list/toolbar.phtml">
+					<block type="page/html_pager" name="product_list_toolbar_pager"/>
+				</block>
+			</block>
+        </reference>
+    </offermanager_offer_products>
+	
+	<offermanager_offer_viewalloffers>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="offermanager/viewalloffers" name="view_all_offers" template="offermanager/viewalloffers.phtml"></block>
+		</reference>
+	</offermanager_offer_viewalloffers>
+	
+	<catalog_category_view>
+		<reference name="content">
+			<block type="offermanager/categoryoffers" name="catagory-offers">
+				<action method="setTemplate" ifconfig="offermanager/manageblock/offerbar_category">
+					<template>offermanager/categoryoffers.phtml</template> 
+				</action>
+			</block>
+		</reference>
+	</catalog_category_view>
+	
+	<catalogsearch_advanced_result translate="label">
+        <label>Advanced Search Result</label>
+        <update handle="page_two_columns_right" />
+		<reference name="content">
+			<block type="offermanager/brandoffers" name="brandoff" before="-">
+				<action method="setTemplate" ifconfig="offermanager/advancesearch_offers/brand_attribute">
+					<template>offermanager/brandoffers.phtml</template> 
+				</action>
+			</block>
+		</reference>
+	</catalogsearch_advanced_result>
+</layout> 

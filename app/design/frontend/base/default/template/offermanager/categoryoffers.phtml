@@ -1,0 +1,63 @@
+<?php
+/**
+ * Tm Offermanager
+ *
+ * Promote Your offers on selected page to enhanced sale
+ * 
+ * @category   Tm
+ * @package    Offermanager
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Tm Offermanager shows offers list on top of the category page if any 
+ *
+ * @see Tm_Offermanage_Block_Categoryoffers 
+ */
+?>
+<?php $offer=$this->getCategoryOffers();
+	$offerCount=count($offer);
+	$columnCount=3;
+	$rowCount=ceil($offerCount/$columnCount);
+	$flag=0;
+?>
+<?php if(!empty($offer)):?>	
+<div class="headingBoxTxt offerBoxShadow">
+	<strong>
+		<span>Offers For <?php echo Mage::getModel('catalog/layer')->getCurrentCategory()->getName();?></span>
+	</strong>
+</div>
+<div class="category-offer">
+	<table >
+		<?php for($i=1;$i<=$rowCount;$i=$i+1):?>
+			<?php $columnFlag=0;if ($flag==0){$j=0;}else{$j=$flag;}?>
+			
+				<tr class="offer-row <?php echo $i;?>" style="border: 1px solid #C4C1BC;">
+					<div>
+						<?php for($j;$j<=$offerCount-1;$j=$j+1):?>
+							<?php if($columnCount>$columnFlag):?>
+								<td class="offer-column <?php echo $j+1;$columnFlag=$j+1;?>" style="width:2150px;">
+									<div class="category-border  offerBoxShadow">
+										<div class="productImg category"  >
+											<a target="_blank" href="<?php echo $this->getUrl('/').$offer[$j]['url_key'].'.html'; ?>">
+												<img  width="100%" height="130" src="<?php echo $this->helper('offermanager')->resizeImg($offer[$j]['offer_icon'], 'catalog/offer/icon/', '136', '130'); ?>">
+											</a>
+										</div>
+										<div class="divoffername">
+											<div class="ofrnameBox ">
+												<a target="_blank" href="<?php echo $this->getUrl('/').$offer[$j]['url_key'].'.html'; ?>"><?php echo $offer[$j]['offer_name']?></a>
+											</div>
+											<div class="clr"></div>
+										</div>
+									</div>
+								</td>	
+								<?php $flag=$j+1;?>
+							<?php endif;?>
+						<?php endfor;?>
+					</div>
+				</tr>
+		<?php endfor;?>
+	</table>	
+</div>
+<?php endif;?>

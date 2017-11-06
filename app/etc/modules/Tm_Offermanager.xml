@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Tm_Offermanager>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Tm_Offermanager>
+    </modules>
+</config> 

@@ -1,0 +1,66 @@
+<?php
+/**
+ * Tm Offermanager
+ *
+ * Promote Your offers on selected page to enhanced sale
+ * 
+ * @category   Tm
+ * @package    Offermanager
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Tm Offermanager display all offer on view all offers landing page
+ *
+ * @see Tm_Offermanage_Block_Viewalloffers 
+ */
+?>
+<?php 
+	$offers=$this->getAllActiveOffers();
+	$flag=2;
+?>
+<div>
+	<div id="box" class="headingBox offerBoxShadow head">
+		<div class="flt headingBoxTxt"><?php echo $this->__('All Offers'); ?></div>
+		<div class="clr"></div>
+	</div>
+	<?php if(!empty($offers)):?>
+		<div class="content2">
+			<?php foreach($offers as $key=>$data):?>
+					<div class="offerBoxShadow contentBox flt <?php if($flag==2){echo "oddoffer";}?>" >
+						<div class="main2 padTp">
+							<div class="productImg flt">
+								<a target="_blank" href="<?php echo $this->getUrl('/').$data['url_key'].'.html'; ?>">
+									<?php if($data['offer_icon']){ ?>
+										<img width="121" height="141" src="<?php echo  $this->helper('offermanager')->resizeImg($data['offer_icon'], 'catalog/offer/icon/', '121', '141'); ?>">
+									<?php } ?>
+								</a>
+							</div>
+							<div class="flt divdescrptn">
+								<div class="ofrDetailBox">
+									<a target="_blank" href="<?php echo $this->getUrl('/').$data['url_key'].'.html'; ?>"><?php echo $data['offer_name']?></a>
+								</div>
+								<?php if($data['description']){ ?>
+								<ol class="UlDetail">
+									<li><?php echo $data['description'];?></li>
+								</ol>
+								<?php } ?>
+								<div class="shpNowBtn frt">
+									<a target="_blank" href="<?php echo $this->getUrl('/').$data['url_key'].'.html'; ?>"><?php echo $this->__('SHOP NOW'); ?></a>
+								</div>
+								<div class="clr"></div>
+							</div>
+							<div class="clr"></div>
+						</div>	
+					</div>	
+				<?php if($flag==1){$flag=2;}else{$flag=1;}?>
+			<?php endforeach;?>
+			<div class="clr"></div>
+		</div>
+	<?php else:?>
+		<div class="content2">
+			<p class="note-msg"><?php echo $this->__('There are no Offers.'); ?></p>
+		</div>
+	<?php endif;?>
+</div>

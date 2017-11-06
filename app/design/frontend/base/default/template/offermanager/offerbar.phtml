@@ -1,0 +1,49 @@
+<?php
+/**
+ * Tm Offermanager
+ *
+ * Promote Your offers on selected page to enhanced sale
+ * 
+ * @category   Tm
+ * @package    Offermanager
+ * @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Tm Offermanager display offers on left/right sidebar
+ *
+ * @see Tm_Offermanage_Block_Offermanager 
+ */
+?>
+<?php $offer=$this->getOffers();?>
+<div class="block block-offer">
+    <div class="block-title">
+        <strong><span><?php echo $this->__("Today's Offers"); ?></span></strong>
+    </div>
+
+    <div class="block-content offer">
+		<?php if(!empty($offer)):?>
+		<div class="offer">
+			<?php foreach($offer as $key=>$data):?>
+			<div class="offer-list">
+				<a href="<?php echo $this->getUrl('/').$data['url_key'].'.html';?>">
+					<div class="topOffer-img">
+						<img width="50" height="50" alt="<?php echo $data['offer_name'];?>" src="<?php echo $this->helper('offermanager')->resizeImg($data['offer_icon'], 'catalog/offer/banners/', '50', '50'); ?>">
+					</div>
+					<div class="topOffer-content">
+						<div class="topOffer-content-text" style="color:#000000"><?php echo $data['offer_name']; ?></div>
+					</div>
+				</a>
+				<div class="clr"></div>
+			</div>	
+			<?php endforeach;?>
+		</div>
+		<?php else:?>
+			<div><?php echo $this->__("There are no offers."); ?></div>
+		<?php endif;?>
+    </div>
+	<div class="actions" id="actions">
+		<a href="<?php echo $this->getUrl('offermanager/offer/viewalloffers');?>"><?php echo $this->__("<< View All Offers >>"); ?></a>
+	</div>
+</div>

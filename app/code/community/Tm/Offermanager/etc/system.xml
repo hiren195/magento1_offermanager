@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Tm Offermanager
+ *
+ * @category  Tm
+ * @package   Offermanager
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+	<tabs>
+		<tm translate="label" module="offermanager">
+			<label>tm</label>
+			<sort_order>200</sort_order>
+		</tm>
+	</tabs>
+	<sections>
+		<offermanager translate="label">
+			<label>Manage Offers</label>
+			<tab>tm</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>120</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<managesidebar translate="label">
+					<label>Manage offer for sidebar</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<offer_type translate="lable">
+							<label>Display offer's Mode</label>
+							<frontend_type>select</frontend_type>
+							<source_model>offermanager/system_config_offermode</source_model>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>>
+						</offer_type>
+						<offers translate="label">
+							<label>How many offers will display</label>  
+							<frontend_type>text</frontend_type>   
+							<comment>If display offer mode set to Autometic then how much offers do you want to display on sidebar.By default 5 offers are display.</comment>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><offer_type>1</offer_type></depends>
+						</offers>
+						<select_offers translate="label">
+							<label>Select Offers</label>
+							<frontend_type>multiselect</frontend_type>
+							<comment>Select multiple offers using ctr+Click to display on sidebar, when offer mode set to manual.</comment>
+							<source_model>offermanager/system_config_source_alloffers</source_model>
+							<sort_order>5</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<depends><offer_type>0</offer_type></depends>
+						</select_offers>
+						<offer_leftposition translate="label">
+							<label>Display Offerbar At Left</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>6</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</offer_leftposition>	
+						<offer_rightposition translate="label">
+							<label>Display Offerbar At Right</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>7</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</offer_rightposition>
+					</fields>
+				</managesidebar>	
+				<manageblock>
+					<label>Manage offer blocks</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<offerbar_category translate="label">
+							<label>Display Offers for category?</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</offerbar_category>
+						<offerbar_advancedsearch translate="label">
+							<label>Display Offers for advanced search?</label>
+							<comment>select yes to display brand wise offers block during Advanced search else set to No.</comment>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</offerbar_advancedsearch>
+					</fields>
+				</manageblock>
+				<advancesearch_offers>
+					<label>Set attribute for advanced search</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<brand_attribute translate="label">
+							<label>Set attribute for brand</label>
+							<frontend_type>text</frontend_type>
+							<comment>Set your brand's attribute to display searched brand's offers at advanced serach. </comment>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</brand_attribute>
+					</fields>
+				</advancesearch_offers>
+			</groups>
+		</offermanager>	
+	</sections>	
+</config>

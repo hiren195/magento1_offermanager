@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Tm Offermanager
+ *
+ * @category  Tm
+ * @package   Offermanager
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<config>
+	<menu>
+		<offermanager module="offermanager">
+			<title>Offermanager</title>
+			<sort_order>51</sort_order>               
+			<children>
+				<items module="offermanager">
+					<title>Manage Offers</title>
+					<sort_order>0</sort_order>
+					<action>offermanager/adminhtml_offermanager</action>
+				</items>
+			</children>
+		</offermanager>
+	</menu>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<offermanager translate="title" module="offermanager">
+						<title>Offermanager</title>
+						<sort_order>51</sort_order>
+						<children>
+							<items translate="title" module="offermanager">
+								<title>Manage Offers</title>
+								<sort_order>0</sort_order>
+							</items>
+						</children>
+					</offermanager>
+					<system>
+						<children>
+							<config>
+								<children>
+									<offermanager translate="title" module="offermanager">
+										<title>offermanager</title>
+										<sort_order>60</sort_order>
+									</offermanager>
+								</children>
+							</config>
+						</children>
+					</system>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

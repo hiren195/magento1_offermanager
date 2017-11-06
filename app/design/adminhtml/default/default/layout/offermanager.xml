@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/*
+ * Tm Offermanager
+ *
+ * @category  Tm
+ * @package   Offermanager
+ * @license   http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+-->
+<layout version="0.1.0">
+    <offermanager_adminhtml_offermanager_index>
+        <reference name="content">
+            <block type="offermanager/adminhtml_offermanager" name="offermanager" />
+        </reference>
+    </offermanager_adminhtml_offermanager_index>
+</layout>
