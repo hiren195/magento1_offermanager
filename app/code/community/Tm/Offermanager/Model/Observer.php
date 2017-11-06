@@ -24,7 +24,7 @@ class Tm_Offermanager_Model_Observer
 
         $nodeId = 'offer-node';
         $data = array(
-            'name' => Mage::helper('offermanager')->__('All Offers'),
+            'name' => Mage::helper('offermanager')->__('Offers'),
             'id' => $nodeId,
             'url' => Mage::getUrl('offermanager/offer/viewalloffers'),
             'is_active' => ($action == 'offermanager_offer_viewalloffers')
@@ -33,7 +33,7 @@ class Tm_Offermanager_Model_Observer
         $node = new Varien_Data_Tree_Node($data, 'id', $tree, $menu);
         $menu->addChild($node);
 		
-		$offerModel=Mage::getModel('offermanager/offermanager')->getCollection()
+        $offerModel = Mage::getModel('offermanager/offermanager')->getCollection()
 													->AddFieldToFilter('status','1')
 													->getData();
 		$activeOffers=Mage::getResourceModel('offermanager/offermanager')->getRuleStatus($offerModel);
